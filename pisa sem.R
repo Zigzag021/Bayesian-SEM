@@ -186,6 +186,7 @@ sem_jags <- '
 jags_sem <- jags.model(textConnection(sem_jags),
                        data = sem_data,
                        n.chains = 4)
+update(jags_sem, n.iter = 1000)
 sem.samps.pred <- jags.samples(
   jags_sem,
   variable.names = c(
@@ -201,7 +202,6 @@ sem.samps.pred <- jags.samples(
   n.iter = 3000
 )
 
-update(jags_sem, n.iter = 1000)
 samples.sem <- coda.samples(jags_sem,
                             variable.names = c("lambda", "beta"),
                             n.iter = 3000)
