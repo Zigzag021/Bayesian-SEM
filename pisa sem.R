@@ -257,7 +257,7 @@ for (i in 2:500) {
 samples.sem <- coda.samples(
   jags_sem,
   variable.names = c("eta", "mu", "lambda", "beta"),
-  n.iter = 3000
+  n.iter = 2000
 )
 selected_samples.sem <- samples.sem[, c("eta[1,1]", "lambda[2,1]" , "beta[2,1]", "mu[1,2]")]
 # Plot trace plots for parameters
